@@ -59,8 +59,8 @@ full: clean spellcheck pre build post
 	cp build/dissertation.pdf final/
 
 # Clean up
-# Separating out build/ simplifies this!
-# We no longer have to enumerate a long list of TeX-related files, like:
+# Separating out build/ simplifies cleanup considerably.
+# Notice we don't have to enumerate a long list of TeX-related files, like:
 # rm -f *.aux *.toc *.out *.log *.bbl *.blg *.pdf *.temp *.lof *.lot
 clean:
 	rm -rf build/
