@@ -3,10 +3,16 @@ Script to update the wordcloud image.
 Requires the wordcloud_cli python tool:
     pip install wordcloud
     https://github.com/amueller/word_cloud
+
+Generates intermediate .temp files in data/ which can be inspected
+to see what is filtered out from the source files.
+
+The blacklist (words to exclude) is in data/wordcloud_omit.txt.
+Additional words can be added to the top of the file.
 '
 
 echo "    updating data/ALL.tex.temp"
-cat src/[0-9]-*.tex src/ack.tex src/appendix.tex > data/ALL.tex.temp
+cat src/*.tex > data/ALL.tex.temp
 
 echo "    updating data/ALL.txt.temp"
 cat data/ALL.tex.temp \
@@ -24,7 +30,7 @@ cat data/ALL.tex.temp \
     > data/ALL.txt.temp
 
 echo "    updating data/BIB.txt.temp"
-cat src/ref.bib \
+cat src/*.bib \
     | grep -o -E '(\btitle|\bauthor).*=.*' \
     | sed -E 's/.*=//' \
     > data/BIB.txt.temp
@@ -44,6 +50,3 @@ wordcloud_cli --text data/BIB.txt.temp \
     --random_state 1 \
     --stopwords data/wordcloud_omit.txt \
     --min_word_length 2
-
-echo "    copying to src/img"
-cp data/wordcloud.png data/wordcloud_refs.png src/img
