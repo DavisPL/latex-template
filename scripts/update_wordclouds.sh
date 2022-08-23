@@ -49,10 +49,14 @@ wordcloud_cli --text data/ALL.txt.temp \
     --stopwords data/wordcloud_omit.txt \
     --min_word_length 2
 
-echo "    updating data/wordcloud_refs.png"
-wordcloud_cli --text data/BIB.txt.temp \
-    --width 2000 --height 1000 \
-    --imagefile data/wordcloud_refs.png \
-    --random_state 1 \
-    --stopwords data/wordcloud_omit.txt \
-    --min_word_length 2
+if [ -s data/BIB.txt.temp ]; then
+    echo "    updating data/wordcloud_refs.png"
+    wordcloud_cli --text data/BIB.txt.temp \
+        --width 2000 --height 1000 \
+        --imagefile data/wordcloud_refs.png \
+        --random_state 1 \
+        --stopwords data/wordcloud_omit.txt \
+        --min_word_length 2
+else
+    echo "    skipping data/wordcloud_refs.png (empty .bib input)"
+fi
