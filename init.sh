@@ -5,6 +5,20 @@
 
 echo "Setting up latex-tools..."
 
+if [ -f Makefile ]; then
+    >&2 echo "Error: Makefile already exists"
+    exit 1
+elif [ -d build ]; then
+    >&2 echo "Error: build/ already exists; delete build directory first"
+    exit 1
+fi
+if [ -d data ]; then
+    >&2 echo "Warning: data/ already exists"
+fi
+if ! [ -d src ]; then
+    >&2 echo "Warning: No src/ directory"
+fi
+
 cp latex-tools/Makefile .
-mkdir build
-mkdir data
+mkdir -p build
+mkdir -p data
