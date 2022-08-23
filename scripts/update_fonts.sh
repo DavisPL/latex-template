@@ -1,4 +1,3 @@
-#!/bin/bash
 : '
 Script to produce a table of all fonts in the final pdf.
 In particular, the table includes whether the fonts are embedded --
@@ -14,4 +13,4 @@ if [ ! -d build ]; then
 fi
 
 echo "    updating data/fonts.txt"
-pdffonts build/dissertation.pdf > data/fonts.txt
+pdffonts build/main.pdf > data/fonts.txt
