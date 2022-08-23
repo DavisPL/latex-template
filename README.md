@@ -25,6 +25,15 @@ Building the wordclouds requires the [`wordcloud_cli` Python tool](https://githu
 pip install wordcloud
 ```
 
+## Why does this repository exist?
+
+This repository mainly serves to put all of the scripts related to my LaTeX workflow in one place. Many other LaTeX build systems exist; I've used `latexmk`, but found it frustrating and feature-incomplete, and it doesn't include a bunch of the other auxiliary functionality here.
+
+For example, with this repository I'm maintaining a common spellcheck whitelist under version control (with CS-specific words); see `data/.aspell.en.pws`.
+Also, this repository enforces a separation between source files (`src/`), build files (`build/`), and auxiliary data (i.e., build script inputs and outputs) which is maintained under version control (`data/`).
+
+I created most of the scripts (`scripts/`) while working on my dissertation, and I will be using and updating this repository for future LaTeX projects.
+
 ## Issues
 
 If you use this repository as a template for your LaTeX project, I would love to hear about bugs or feature requests. Please file an issue!
