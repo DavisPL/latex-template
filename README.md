@@ -3,13 +3,24 @@
 A LaTeX repository template with smarter build scripts.
 
 Includes functionality for:
-- spellchecking and maintaining a project-specific whitelist under version control (`make spellcheck`);
-- building the PDF with bibtex, filtering out all output aside from warnings and errors (`make`); and
-- building various auxiliary data (`make aux`) including a wordcloud, summary statistics, and a list of unused bibliography entries.
+- spellchecking with a project-specific whitelist maintained under version control (`make spellcheck`);
+- building the PDF while filtering out all output aside from warnings and errors (`make`); and
+- building auxiliary data (`make aux`) including a wordcloud, summary statistics, a check for correctly embedded fonts, and a list of unused bibliography entries.
 
 ## To Use
 
-Clone this repository. Then include your LaTeX source files under `src/`. Run `make` to view the PDF, `make clean` to clean up, or `make full` to build the final version including spellcheck and auxiliary data. Check out `Makefile` for details about these options.
+1. Clone this repository.
+2. Modify the LaTeX source files under `src/` (or include your own).
+3. Run `make` to build only the PDF, or `make full` to build the PDF and all auxiliary data.
+
+This does the following:
+- Spellchecks the input files, updating the whitelist in `data/.aspell.en.pws`.
+- Produces the size of all input files in `data/totals.txt`.
+- Produces curated wordclouds for your LaTeX project in `data/wordcloud.png` and `data/wordcloud_refs.png`.
+- Produces bibliography stats (including unused refs) in `data/bibentries.txt` and `data/bibunused.txt`.
+- Produces the PDF in `build/main.pdf`.
+
+Check out `Makefile` for more specific options.
 
 ## Dependencies
 
