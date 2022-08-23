@@ -15,6 +15,13 @@ The blacklist (words to exclude) is in data/wordcloud_omit.txt.
 Additional words can be added to the top of the file.
 '
 
+if ! command -v wordcloud_cli &> /dev/null
+then
+    echo "    skipping wordclouds -- wordcloud_cli could not be found" >&2
+    echo "    hint: try 'pip install wordcloud'" >&2
+    exit 0
+fi
+
 echo "    updating data/ALL.tex.temp"
 mv src/header.tex data/header.tex.temp
 cat src/*.tex > data/ALL.tex.temp
