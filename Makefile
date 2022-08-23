@@ -40,7 +40,7 @@ pre:
 
 # Auxiliary data from post-build .pdf/.aux files
 post: build
-	scripts/update_bibentries.sh || true
+	scripts/update_bibstats.sh || true
 	scripts/update_fonts.sh
 
 # Build all auxiliary data and stats
