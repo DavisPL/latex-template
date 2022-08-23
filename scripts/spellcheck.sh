@@ -4,7 +4,7 @@ Requires aspell.
 '
 
 ASPELL_ARGS="-c -t --dont-backup --home-dir=data"
-EXCLUDE_TEX="src/cut.tex src/header.tex"
+EXCLUDE_TEX="src/header.tex"
 
 for texfile in src/*.tex; do
     if [[ "$EXCLUDE_TEX" = *"$texfile"* ]]; then
