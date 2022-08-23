@@ -24,7 +24,8 @@ Check out `Makefile` for more specific options.
 
 ## Dependencies
 
-You should have a full distribution of TeX Live installed (e.g. `texlive-full`), which ships with some auxiliary command line tools. Run the following to make sure everything is installed:
+This repository has been tested on Mac and Linux.
+You will need a full distribution of TeX Live (e.g. `texlive-full`), which ships with some auxiliary command line tools. Run the following to make sure everything is installed:
 ```
 pdflatex -v
 texfot -v
