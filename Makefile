@@ -10,21 +10,20 @@ PDFLATEX_EXIT = -interaction=nonstopmode -halt-on-error
 
 # Build and view the PDF
 view: build
-	open build/dissertation.pdf
+	open build/main.pdf
 
 # Build the PDF
-build: build/dissertation.pdf
+build: build/main.pdf
 
 # Run pdflatex with prettified (less verbose) output
 # Requires texfot (which I believe is installed by default with most distros)
-build/dissertation.pdf: $(SRC_FILES) $(BIB_FILES) $(FIG_FILES) $(IMG_FILES)
+build/main.pdf: $(SRC_FILES) $(BIB_FILES) $(FIG_FILES) $(IMG_FILES)
 	cp -R src/ build/
 	cd build \
-	&& pdflatex $(PDFLATEX_EXIT) dissertation.tex > /dev/null \
-	&& bibtex --terse Main.aux | sed 's_^_    _' \
-	&& bibtex --terse dissertation.aux | sed 's_^_    _' \
-	&& pdflatex dissertation.tex > /dev/null \
-	&& texfot pdflatex dissertation.tex | sed 's_^_    _'
+	&& pdflatex $(PDFLATEX_EXIT) main.tex > /dev/null \
+	&& bibtex --terse *.aux | sed 's_^_    _' \
+	&& pdflatex main.tex > /dev/null \
+	&& texfot pdflatex main.tex | sed 's_^_    _'
 
 # Show all sources picked up by the Makefile (useful for debugging)
 show-input-files:
@@ -56,7 +55,7 @@ spellcheck:
 
 # Build full/final version for publishing
 full: clean spellcheck pre build post
-	cp build/dissertation.pdf final/
+	cp build/main.pdf final/
 
 # Clean up
 # Separating out build/ simplifies cleanup considerably.
