@@ -4,6 +4,10 @@ Requires the wordcloud_cli python tool:
     pip install wordcloud
     https://github.com/amueller/word_cloud
 
+Excludes the input file header.tex (if present).
+Does not currently filter out usepackage and newcommand arguments,
+so these are best included in header.tex.
+
 Generates intermediate .temp files in data/ which can be inspected
 to see what is filtered out from the source files.
 
@@ -12,7 +16,9 @@ Additional words can be added to the top of the file.
 '
 
 echo "    updating data/ALL.tex.temp"
+mv src/header.tex data/header.tex.temp
 cat src/*.tex > data/ALL.tex.temp
+mv data/header.tex.temp src/header.tex
 
 echo "    updating data/ALL.txt.temp"
 cat data/ALL.tex.temp \
