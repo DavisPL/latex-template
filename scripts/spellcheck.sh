@@ -1,4 +1,3 @@
-#!/bin/bash
 : '
 Script to run spellcheck on all .tex source files.
 Requires aspell.
