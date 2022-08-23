@@ -38,7 +38,7 @@ show-input-files:
 
 # Auxiliary data from pre-build .tex/.bib files
 pre:
-	scripts/update_progress.sh
+	scripts/update_totals.sh
 	scripts/update_wordclouds.sh
 
 # Auxiliary data from post-build .pdf/.aux files
