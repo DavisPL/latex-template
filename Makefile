@@ -3,7 +3,6 @@
 
 SRC_FILES = $(wildcard src/*.tex)
 BIB_FILES = $(wildcard src/*.bib)
-FIG_FILES = $(wildcard src/figures/*/*.pdf)
 IMG_FILES = $(wildcard src/img/*) $(wildcard src/img/*/*)
 
 PDFLATEX_EXIT = -interaction=nonstopmode -halt-on-error
@@ -17,11 +16,11 @@ build: build/main.pdf
 
 # Run pdflatex with prettified (less verbose) output
 # Requires texfot (which I believe is installed by default with most distros)
-build/main.pdf: $(SRC_FILES) $(BIB_FILES) $(FIG_FILES) $(IMG_FILES)
+build/main.pdf: $(SRC_FILES) $(BIB_FILES) $(IMG_FILES)
 	cp -R src/ build/
 	cd build \
 	&& pdflatex $(PDFLATEX_EXIT) main.tex > /dev/null \
-	&& bibtex --terse *.aux | sed 's_^_    _' \
+	&& bibtex --terse main.aux | sed 's_^_    _' \
 	&& pdflatex main.tex > /dev/null \
 	&& texfot pdflatex main.tex | sed 's_^_    _'
 
@@ -31,9 +30,7 @@ show-input-files:
 	@echo $(SRC_FILES)
 	@echo "=== bib ==="
 	@echo $(BIB_FILES)
-	@echo "=== figures ==="
-	@echo $(FIG_FILES)
-	@echo "=== images ==="
+	@echo "=== images and figures ==="
 	@echo $(IMG_FILES)
 
 # Auxiliary data from pre-build .tex/.bib files
@@ -53,9 +50,8 @@ aux: pre post
 spellcheck:
 	scripts/spellcheck.sh
 
-# Build full/final version for publishing
+# Build final version for publishing
 full: clean spellcheck pre build post
-	cp build/main.pdf final/
 
 # Clean up
 # Separating out build/ simplifies cleanup considerably.
