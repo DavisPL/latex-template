@@ -29,23 +29,23 @@ mv data/header.tex.temp src/header.tex
 
 echo "    updating data/ALL.txt.temp"
 cat data/ALL.tex.temp \
-    | sed -E 's/^%.*//' \
-    | sed -E 's/\\label{.*}/ /g' \
-    | sed -E 's/\\Cref{.*}/ /g' \
-    | sed -E 's/\\ref{.*}/ /g' \
-    | sed -E 's/\\eqref{.*}/ /g' \
-    | sed -E 's/\\cite(Main)?{.*}/ /g' \
-    | sed -E 's/\\begin{.*}/ /g' \
-    | sed -E 's/\\end{.*}/ /g' \
-    | sed -E 's/\\[a-zA-Z]*//g' \
-    | sed -E 's/_/ /g' \
-    | sed -E 's/'\''/ /g' \
+    | sed 's/^%.*//' \
+    | sed 's/\\label{.*}/ /g' \
+    | sed 's/\\Cref{.*}/ /g' \
+    | sed 's/\\ref{.*}/ /g' \
+    | sed 's/\\eqref{.*}/ /g' \
+    | sed 's/\\cite{.*}/ /g' \
+    | sed 's/\\begin{.*}/ /g' \
+    | sed 's/\\end{.*}/ /g' \
+    | sed 's/\\[a-zA-Z]*//g' \
+    | sed 's/_/ /g' \
+    | sed 's/'\''/ /g' \
     > data/ALL.txt.temp
 
 echo "    updating data/BIB.txt.temp"
 cat src/*.bib \
     | grep -o -E '(\btitle|\bauthor).*=.*' \
-    | sed -E 's/.*=//' \
+    | sed 's/.*=//' \
     > data/BIB.txt.temp
 
 echo "    updating data/wordcloud.png"

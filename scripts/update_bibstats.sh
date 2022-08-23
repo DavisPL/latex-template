@@ -7,6 +7,9 @@ Thanks to:
     https://tex.stackexchange.com/a/232771/28267
 '
 
+# Environment variable to make 'sort' cross-platform
+export LC_ALL=C
+
 if [ ! -d build ]; then
     echo "build directory not found -- run make build first."
     exit 1
@@ -30,10 +33,11 @@ cat src/ref.bib \
 echo "===== By venue =====" >> data/bibentries.txt
 cat src/ref.bib \
     | grep -oh -E 'booktitle(.*)=(.*)|journal(.*)=(.*)' \
-    | sed -E 's/.*=.*({|\")(.*)(}|\")/\2/' \
-    | sed -E 's/[0-9]+(th|st|nd|rd) //' \
-    | sed -E 's/first |second |third //I' \
-    | sed -E 's/biennial //I' \
+    | sed 's/.*=.*"\(.*\)"/\1/' \
+    | sed 's/.*=.*{\(.*\)}/\1/' \
+    | sed -r 's/[0-9]+(th|st|nd|rd) //' \
+    | sed 's/first |second |third //I' \
+    | sed 's/biennial //I' \
     | sort \
     | uniq -c \
     | sort -bnr \
