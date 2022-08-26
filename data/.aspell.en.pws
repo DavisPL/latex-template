@@ -1,4 +1,4 @@
-personal_ws-1.1 en 389 
+personal_ws-1.1 en 395 
 ACM
 AFA
 AFAs
@@ -255,6 +255,7 @@ monotonicity
 multiset
 multisets
 natively
+nd
 nondeterministically
 nonemptiness
 nonreachability
@@ -279,6 +280,8 @@ pluggable
 png
 polset
 polsets
+polylog
+polylogarithmic
 pomset
 pomsets
 popl
@@ -297,6 +300,7 @@ profiler
 prog
 programmability
 programmatically
+prover
 provers
 pseudocode
 punctuations
@@ -360,6 +364,7 @@ superset
 supersets
 supertype
 tex
+th
 thm
 throughputs
 timeslice
@@ -377,6 +382,7 @@ undef
 underconfidence
 underconfident
 underserved
+undirected
 unsatisfiability
 unsatisfiable
 untagged
