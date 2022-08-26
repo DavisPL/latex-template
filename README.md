@@ -7,7 +7,7 @@ Includes functionality for:
 - building the PDF while filtering out all output aside from warnings and errors (`make`); and
 - building auxiliary data (`make aux`) including a wordcloud, summary statistics, a check for correctly embedded fonts, and a list of unused bibliography entries.
 
-## To Use
+## To use
 
 1. Clone this repository.
 2. Modify the LaTeX source files under `src/` (or include your own).
@@ -45,6 +45,14 @@ For example, with this repository I'm maintaining a common spellcheck whitelist 
 Also, this repository enforces a separation between source files (`src/`), build files (`build/`), and auxiliary data (i.e., build script inputs and outputs) which is maintained under version control (`data/`).
 
 I created most of the scripts (`scripts/`) while working on my dissertation, and I will be using and updating this repository for future LaTeX projects.
+
+## Known limitations
+
+It is currently necessary for the main file to be `main.tex` and for there to be a single references file named `ref.bib` (as in the template `src/`).
+Other configurations (e.g. multiple bibliographies `multibib`) aren't supported yet.
+
+The Makefile doesn't attempt to optimize the build for performance, so may not be appropriate for a larger project like a book.
+When pdflatex fails, `make` should exit gracefully (if not, it's a bug) but you may still have to go into build/ and run pdflatex to get the error message. This may also mess up the build state so that you have to run `make clean` before building again.
 
 ## Issues
 
