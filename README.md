@@ -1,6 +1,6 @@
-# latex-tools
+# latex-template
 
-A LaTeX template repository with batteries included for cleaner builds, spellchecking, BibTeX checks, and summary statistics.
+A LaTeX template repository with batteries included: cleaner builds, spellchecking, BibTeX checks, and summary statistics.
 
 ## To use
 
