@@ -11,6 +11,8 @@ After cloning the respository, run `make` to compile and view the PDF or `make f
 - The comprehensive build also runs a spellcheck, maintaining a whitelist specific to your project (`make spellcheck`); and it produces various auxiliary data and checks (`make aux`), including a list of unused references, a check for correctly embedded fonts, summary statistics, and wordclouds.
 By default, the auxiliary data including the spellcheck whitelist are under version control so that they can be tracked and published with major versions of the document.
 
+- You can also `make arxiv` to create a ready-to-upload `.zip` file for arXiv (via [arxiv_latex_cleaner](https://github.com/google-research/arxiv-latex-cleaner)).
+
 ## Requirements
 
 This repository has been tested on Mac and Linux.
@@ -21,10 +23,8 @@ texfot -v
 checkcites -v
 ```
 
-If you want the wordclouds, you will need the [`wordcloud_cli` Python tool](https://github.com/amueller/word_cloud). To install:
-```
-pip install wordcloud
-```
+For arXiv, you will need `pip` and Python3 (`make arxiv` runs `pip install arxiv-latex-cleaner`).
+If you want the wordclouds, you will additionally need the [`wordcloud_cli` Python tool](https://github.com/amueller/word_cloud), which you can install with `pip install wordcloud`.
 
 ## Why I created this repository
 

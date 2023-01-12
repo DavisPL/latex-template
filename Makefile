@@ -53,6 +53,14 @@ spellcheck:
 # Build final version for publishing
 full: clean spellcheck pre build post
 
+# Build final version for submission to arXiv
+# Creates ready-to-upload src_arXiv/ and arXiv.zip
+arxiv: full
+	pip install arxiv-latex-cleaner
+	arxiv_latex_cleaner src --resize_images --im_size 500
+	cp build/*.bbl src_arXiv/
+	zip -vr arXiv.zip src_arXiv/ -x "*.DS_Store"
+
 # Clean up
 # Separating out build/ simplifies cleanup considerably.
 # Notice we don't have to enumerate a long list of TeX-related files, like:
@@ -60,3 +68,5 @@ full: clean spellcheck pre build post
 clean:
 	rm -rf build/
 	rm -f data/*.temp
+	rm -rf src_arXiv/
+	rm -f arXiv.zip
