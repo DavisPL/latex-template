@@ -1,10 +1,12 @@
-personal_ws-1.1 en 402 
+personal_ws-1.1 en 418 
 ACM
 AFA
 AFAs
 API
 APIs
 ARG
+AVL
+Ackermann
 Aldus
 Alur
 Antimirov
@@ -69,6 +71,8 @@ Letraset
 LoC
 MSO
 MTL
+MacBook
+MacOS
 MapReduce
 Mazurkiewicz
 MillWheel
@@ -134,6 +138,7 @@ WPE
 Xeon
 acyclic
 acyclicity
+adversarially
 algorithmically
 analytics
 antisymmetric
@@ -142,6 +147,7 @@ arity
 ary
 autograding
 automata
+backend
 backpressure
 benchmarking
 bibunused
@@ -185,11 +191,14 @@ deadness
 decomposable
 decremental
 dep
+dereference
+dereferences
 determinization
 determinizing
 diffstream
 disjunction
 distinguishability
+elses
 eps
 equalities
 eval
@@ -218,6 +227,8 @@ iff
 img
 impactful
 impl
+incentivize
+incentivizing
 inclusivity
 incrementality
 indep
@@ -229,6 +240,7 @@ injective
 instantiation
 interleavings
 interpretable
+intra
 invariants
 ipsum
 irreflexive
@@ -246,6 +258,7 @@ liveness
 loc
 logarithmically
 logics
+lookups
 lorem
 ly
 mapreduce
@@ -312,6 +325,8 @@ pseudocode
 punctuations
 quadratically
 reachability
+rebalance
+rebalancing
 reclock
 recurse
 recurses
@@ -393,6 +408,7 @@ undirected
 unsatisfiability
 unsatisfiable
 untagged
+util
 webpage
 wordcloud
 wordcount
