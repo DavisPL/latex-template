@@ -18,4 +18,6 @@ awk '/\\begin{abstract}/,/\\end{abstract}/' src/*.tex \
     | sed 's/\\emph{\(.*\)}/\1/g' \
     | sed 's/^\([^\$]*\)\\[a-zA-Z]*/\1/g' \
     | sed 'N;/^\n$/D;P;D;' \
+    | awk ' /^$/ { print "\n"; } /./ { printf("%s ", $0); } END { print ""; } ' \
+    | sed -e ':a' -e 'N' -e '$!ba' -e 's/^\n*//' \
     > $TARGET
