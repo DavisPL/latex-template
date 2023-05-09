@@ -13,4 +13,4 @@ if [ ! -d build ]; then
 fi
 
 echo "    updating data/fonts.txt"
-pdffonts build/main.pdf > data/fonts.txt
+pdffonts build/main.pdf | sed 's/\+/ /' | awk '{$1=$9=""; print $0}' > data/fonts.txt
