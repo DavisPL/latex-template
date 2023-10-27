@@ -1,6 +1,6 @@
 # latex-template
 
-A LaTeX template repository with batteries included: cleaner builds, spellchecking, BibTeX checks, and summary statistics.
+A LaTeX template repository which provides cleaner builds, spellchecking, BibTeX checks, and summary statistics.
 
 ## To use
 
@@ -26,12 +26,11 @@ checkcites -v
 For arXiv, you will need `pip` and Python3 (`make arxiv` runs `pip install arxiv-latex-cleaner`).
 If you want the wordclouds, you will additionally need the [`wordcloud_cli` Python tool](https://github.com/amueller/word_cloud), which you can install with `pip install wordcloud`.
 
-## Why I created this repository
+## Why yet another LaTeX template?
 
-This repository serves to put all of the scripts related to my LaTeX workflow in one place. Many other LaTeX build systems exist; I've used `latexmk`, but found it frustrating and feature-incomplete, and it doesn't include a bunch of the other auxiliary functionality here. Overleaf is far easier to use, but frustrating for collaborative editing as it lacks a nicely packaged list of each coauthors changes under a version control system.
-I created most of the scripts (`scripts/`) while working on my dissertation, and I will be using and updating this repository for future LaTeX projects.
+Many other LaTeX build systems exist; I've used `latexmk`, but its output is unhelpful and it doesn't include much of the other auxiliary functionality here. Overleaf is much easier to use, but lacking version control, it awkwardly merges collaborative edits without tracking who did what, and has several concurrency and availability bugs.
 
-The repository enforces a separation between source files (`src/`), build files (`build/`), and auxiliary data (`/data`, i.e., build script inputs and outputs).
+The repository enforces a separation between source files (`src/`), build files (`build/`), scripts (`scripts/`), and auxiliary data (`/data`, i.e., build script inputs and outputs).
 The whitelist shipped with the repository in `data/.aspell.en.pws` includes lots of CS-specific words.
 
 ## Known limitations
