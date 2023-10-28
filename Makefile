@@ -8,6 +8,11 @@ IMG_FILES = $(wildcard src/img/*) $(wildcard src/img/*/*)
 PDFLATEX_EXIT = -interaction=nonstopmode -halt-on-error
 TEXFOT_QUIET = --quiet --ignore "^This is pdfTeX" --ignore "^Output written on" --ignore "^Transcript written on"
 
+INDENT = sed 's_^_    _'
+RED = printf "\033[0;31m"
+YELLOW = printf "\033[1;33m"
+RESET = printf "\033[0m"
+
 # Build and view the PDF
 view: build
 	open build/main.pdf
@@ -22,16 +27,17 @@ build/main.pdf: $(SRC_FILES) $(BIB_FILES) $(IMG_FILES)
 	@echo "Entering build..."
 	@cd build \
 	&& pdflatex $(PDFLATEX_EXIT) main.tex > /dev/null \
-	&& printf "\033[1;33m" \
-	&& bibtex --terse main.aux | sed 's_^_    _' \
-	&& printf "\033[0m" \
+	&& $(YELLOW) \
+	&& bibtex --terse main.aux | $(INDENT) \
+	&& $(RESET) \
 	&& pdflatex main.tex > /dev/null \
-	&& printf "\033[1;33m" \
-	&& texfot $(TEXFOT_QUIET) pdflatex main.tex | sed 's_^_    _' \
-	&& printf "\033[0m" \
-	|| ( printf "\033[0;31m    ===== Error =====\n" \
-	&& texfot $(TEXFOT_QUIET) pdflatex $(PDFLATEX_EXIT) main.tex | sed 's_^_    _' \
-	&& printf "\033[0m" \
+	&& $(YELLOW) \
+	&& texfot $(TEXFOT_QUIET) pdflatex main.tex | $(INDENT) \
+	&& $(RESET) \
+	|| ( $(RED) \
+	&& printf "===== Error =====\n" | $(INDENT) \
+	&& texfot $(TEXFOT_QUIET) pdflatex $(PDFLATEX_EXIT) main.tex | $(INDENT) \
+	&& $(RESET) \
 	&& cd .. \
 	&& rm -rf build/ \
 	&& exit 1 )
