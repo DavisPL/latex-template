@@ -4,7 +4,7 @@ A LaTeX template repository which provides cleaner builds, spellchecking, BibTeX
 
 ## To use
 
-After cloning the respository, run `make` to compile and view the PDF or `make full` for a more comprehensive build (intended to be run less frequently for publishable versions).
+After cloning the repository, run `make` to compile and view the PDF or `make full` for a more comprehensive build (intended to be run less frequently for publishable versions).
 
 - The basic build generates the PDF while filtering out all output aside from warnings and errors.
 
