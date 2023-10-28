@@ -13,6 +13,8 @@ By default, the auxiliary data including the spellcheck whitelist are under vers
 
 - You can also `make arxiv` to create a ready-to-upload `.zip` file for arXiv (via [arxiv_latex_cleaner](https://github.com/google-research/arxiv-latex-cleaner)).
 
+- When pdflatex fails, `make` should exit gracefully and inform you of the error (if not, it's a bug)!
+
 ## Requirements
 
 This repository has been tested on Mac and Linux.
@@ -36,10 +38,8 @@ The whitelist shipped with the repository in `data/.aspell.en.pws` includes lots
 ## Known limitations
 
 It is currently necessary for the main file to be `main.tex` and for there to be a single references file named `ref.bib` (as in the template `src/`).
-Other configurations (e.g. multiple bibliographies `multibib`) aren't supported yet.
-
+Other configurations (e.g. multiple bibliographies via `multibib`) aren't supported yet.
 The Makefile doesn't attempt to optimize the build for performance, so may not be appropriate for a larger project like a book.
-When pdflatex fails, `make` should exit gracefully (if not, it's a bug) but you may still have to go into build/ and run pdflatex to get the error message. This may also mess up the build state so that you have to run `make clean` before building again.
 
 ## Issues
 

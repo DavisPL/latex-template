@@ -18,11 +18,18 @@ build: build/main.pdf
 # Requires texfot (which I believe is installed by default with most distros)
 build/main.pdf: $(SRC_FILES) $(BIB_FILES) $(IMG_FILES)
 	cp -R src/ build/
-	cd build \
+	@echo "Entering build..."
+	@cd build \
 	&& pdflatex $(PDFLATEX_EXIT) main.tex > /dev/null \
 	&& bibtex --terse main.aux | sed 's_^_    _' \
 	&& pdflatex main.tex > /dev/null \
-	&& texfot pdflatex main.tex | sed 's_^_    _'
+	&& texfot pdflatex main.tex | sed 's_^_    _' \
+	|| ( echo "\n\033[0;31m===== Error =====" \
+	&& texfot pdflatex $(PDFLATEX_EXIT) main.tex ) \
+	|| ( echo "\033[0m" \
+	&& cd .. \
+	&& rm -rf build/ \
+	&& exit 1 )
 
 # Show all sources picked up by the Makefile (useful for debugging)
 show-input-files:
