@@ -18,11 +18,16 @@ By default, the auxiliary data including the spellcheck whitelist are under vers
 ## Requirements
 
 This repository has been tested on Mac and Linux.
-You will need a full distribution of TeX Live (e.g. `texlive-full`), which ships with some auxiliary command line tools. Run the following to make sure everything is installed:
+You will need a full distribution of TeX Live (e.g. `texlive-full`), which ships with some auxiliary command line tools.
+Also, install `pdffonts` via `brew install poppler`.
+
+Run the following to make sure everything is installed:
+
 ```
 pdflatex -v
 texfot -v
 checkcites -v
+pdffonts -v
 ```
 
 For arXiv, you will need `pip` and Python3 (`make arxiv` runs `pip install arxiv-latex-cleaner`).

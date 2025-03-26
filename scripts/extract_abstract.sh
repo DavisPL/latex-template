@@ -6,6 +6,8 @@ Preserves $-enclosed tex; removes \begin..\end, \keywords, \emph.
 
 Also removes other \ tex commands, but only in a limited manner:
 at most one per line, only if it occurs before the first $.
+
+Note: this script doesn't work, it's broken for comments.
 '
 
 TARGET="data/abstract_plain.tex"
